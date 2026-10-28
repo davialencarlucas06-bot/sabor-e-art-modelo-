@@ -1,0 +1,230 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#351820">
+  <meta name="description" content="Sabor e Art — doces especiais, bolos artesanais e momentos inesquecíveis. Conheça nosso cardápio.">
+  <title>Sabor e Art | Doces feitos com carinho</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="announcement">
+    Feito com carinho, pensado para encantar.
+  </div>
+
+  <header class="header">
+    <a class="brand" href="#inicio" aria-label="Sabor e Art, início">
+      <span class="brand-mark">S<span>&</span>A</span>
+      <span class="brand-name">Sabor <em>&</em> Art
+        <small>DOCES E CONFEITARIA</small>
+      </span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle"
+      aria-label="Abrir menu" aria-expanded="false">☰</button>
+
+    <nav class="nav" id="nav">
+      <a href="#inicio">Início</a>
+      <a href="#sobre">Nossa essência</a>
+      <a href="#cardapio">Cardápio</a>
+      <a href="#contato">Contato</a>
+      <a class="nav-cta" href="#cardapio">Conheça os doces ↗</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-content">
+        <span class="eyebrow"><span class="eyebrow-line"></span> PEQUENOS DETALHES, GRANDES MOMENTOS</span>
+
+        <h1>Um toque de doçura.<br><span>Uma memória para sempre.</span></h1>
+
+        <p>Doces que encantam os olhos, conquistam o paladar e deixam qualquer momento ainda mais especial.</p>
+
+        <div class="hero-actions">
+          <a class="button button-gold" href="#cardapio">Explorar cardápio <span>↗</span></a>
+          <a class="text-link" href="#sobre">Conheça a Sabor e Art <span>→</span></a>
+        </div>
+
+        <div class="hero-note">
+          <span class="note-icon">✳</span>
+          <div>
+            <strong>Doçura em cada detalhe</strong>
+            <small>Uma experiência feita para surpreender.</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-image-wrap">
+          <img
+            src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1100&q=85"
+            alt="Bolo decorado com cobertura e frutas"
+            fetchpriority="high">
+          <div class="image-label">
+            <span>FEITO PARA ENCANTAR</span>
+            <strong>Seu momento merece algo especial.</strong>
+          </div>
+        </div>
+        <div class="floating-seal">
+          <span>✳</span>
+          <small>DOCE</small>
+          <strong>AMOR</strong>
+          <small>EM CADA DETALHE</small>
+        </div>
+        <div class="hero-decoration"></div>
+      </div>
+    </section>
+
+    <section class="benefits">
+      <div><span>✳</span><p>Detalhes que encantam</p></div>
+      <div><span>♡</span><p>Feito com carinho</p></div>
+      <div><span>✧</span><p>Momentos especiais</p></div>
+    </section>
+
+    <section class="about section-pad" id="sobre">
+      <div class="about-image">
+        <img
+          src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?auto=format&fit=crop&w=900&q=85"
+          alt="Cupcakes decorados com cobertura">
+        <span class="about-stamp">UMA EXPERIÊNCIA<br>MAIS DOCE</span>
+      </div>
+
+      <div class="about-content">
+        <span class="eyebrow">MAIS QUE DOCES, MOMENTOS</span>
+        <h2>O carinho está<br>em cada <em>detalhe.</em></h2>
+        <p>Acreditamos que os melhores momentos merecem um toque especial. Por isso, cada doce pode transformar uma ocasião simples em uma lembrança inesquecível.</p>
+        <p>Conheça nossas opções e encontre a combinação perfeita para a sua comemoração.</p>
+        <a href="#cardapio" class="text-link">Descobrir nossos sabores <span>→</span></a>
+      </div>
+    </section>
+
+    <section class="menu-section section-pad" id="cardapio">
+      <div class="section-heading">
+        <span class="eyebrow">ESCOLHA SEU FAVORITO</span>
+        <h2>Um cardápio para <em>se apaixonar.</em></h2>
+        <p>Encontre uma delícia para cada vontade e ocasião.</p>
+      </div>
+
+      <div class="filters" aria-label="Filtrar produtos">
+        <button class="filter active" data-filter="todos">Todos</button>
+        <button class="filter" data-filter="bolos">Bolos</button>
+        <button class="filter" data-filter="docinhos">Docinhos</button>
+        <button class="filter" data-filter="tortas">Tortas</button>
+      </div>
+
+      <div class="products">
+        <article class="product-card" data-category="bolos">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80"
+              alt="Bolo decorado" loading="lazy">
+            <span class="product-tag">PARA CELEBRAR</span>
+          </div>
+          <div class="product-info">
+            <span class="product-type">BOLOS</span>
+            <h3>Bolo especial</h3>
+            <p>Uma opção deliciosa para tornar a comemoração ainda mais especial.</p>
+            <div class="product-bottom">
+              <span class="price">Sob consulta</span>
+              <button class="add-button" data-product="Bolo especial" aria-label="Consultar Bolo especial">↗</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="docinhos">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1548907040-4d42e3f6f9a7?auto=format&fit=crop&w=700&q=80"
+              alt="Docinhos de chocolate" loading="lazy">
+            <span class="product-tag">PEQUENAS DELÍCIAS</span>
+          </div>
+          <div class="product-info">
+            <span class="product-type">DOCINHOS</span>
+            <h3>Docinhos especiais</h3>
+            <p>Pequenos detalhes para adoçar festas, encontros e presentes.</p>
+            <div class="product-bottom">
+              <span class="price">Sob consulta</span>
+              <button class="add-button" data-product="Docinhos especiais" aria-label="Consultar Docinhos especiais">↗</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="tortas">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=700&q=80"
+              alt="Torta decorada com frutas" loading="lazy">
+            <span class="product-tag">UM TOQUE ESPECIAL</span>
+          </div>
+          <div class="product-info">
+            <span class="product-type">TORTAS</span>
+            <h3>Torta artesanal</h3>
+            <p>Uma combinação irresistível para compartilhar bons momentos.</p>
+            <div class="product-bottom">
+              <span class="price">Sob consulta</span>
+              <button class="add-button" data-product="Torta artesanal" aria-label="Consultar Torta artesanal">↗</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="docinhos">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?auto=format&fit=crop&w=700&q=80"
+              alt="Cupcakes decorados" loading="lazy">
+            <span class="product-tag">CHEIOS DE CHARME</span>
+          </div>
+          <div class="product-info">
+            <span class="product-type">DOCINHOS</span>
+            <h3>Cupcakes decorados</h3>
+            <p>Cor, delicadeza e sabor para deixar a mesa ainda mais bonita.</p>
+            <div class="product-bottom">
+              <span class="price">Sob consulta</span>
+              <button class="add-button" data-product="Cupcakes decorados" aria-label="Consultar Cupcakes decorados">↗</button>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <p class="catalog-note">* Fotos ilustrativas. Consulte os sabores, tamanhos, disponibilidade e valores reais com a loja.</p>
+    </section>
+
+    <section class="quote-section">
+      <span class="quote-symbol">“</span>
+      <p>Os momentos mais doces da vida merecem ser celebrados.</p>
+      <span class="quote-caption">SABOR E ART · FEITO PARA ENCANTAR</span>
+    </section>
+
+    <section class="contact section-pad" id="contato">
+      <div class="contact-card">
+        <div>
+          <span class="eyebrow">VAMOS ADOÇAR SEU DIA?</span>
+          <h2>Seu próximo momento especial começa <em>aqui.</em></h2>
+          <p>Fale com a Sabor e Art para consultar o cardápio, os valores e fazer sua encomenda.</p>
+        </div>
+        <a class="button button-light" href="#" id="contactButton">Falar pelo WhatsApp <span>↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="brand footer-brand" href="#inicio">
+      <span class="brand-mark">S<span>&</span>A</span>
+      <span class="brand-name">Sabor <em>&</em> Art
+        <small>DOCES E CONFEITARIA</small>
+      </span>
+    </a>
+    <p>Feito com carinho para adoçar seus momentos.</p>
+    <span class="copyright">© <span id="year"></span> Sabor e Art.</span>
+  </footer>
+
+  <a class="floating-whatsapp" href="#" id="floatingWhatsapp"
+    aria-label="Fale com a Sabor e Art pelo WhatsApp">✆</a>
+
+  <script src="script.js"></script>
+</body>
+</html>
