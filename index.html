@@ -4,121 +4,315 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Sabor & Art — doces artesanais feitos com carinho para deixar seus momentos especiais.">
-  <title>Sabor & Art | Doces Artesanais</title>
+
+  <meta name="theme-color" content="#fffaf4">
+  <meta name="description" content="Peça bolos e doces artesanais na Sabor & Art.">
+
+  <title>Sabor & Art | Cardápio Digital</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <header class="header">
-    <a class="logo" href="#inicio">Sabor <span>&</span> Art<span class="logo-dot">.</span></a>
-    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
-    <nav class="nav" id="nav">
-      <a href="#inicio">Início</a>
-      <a href="#sobre">Sobre nós</a>
-      <a href="#doces">Nossos doces</a>
-      <a href="#contato">Contato</a>
-      <a class="nav-cta" href="#doces">Ver delícias</a>
-    </nav>
+  <header class="topbar">
+    <a href="#inicio" class="brand">
+      Sabor <span>&</span> Art<span class="brand-dot">.</span>
+    </a>
+
+    <button class="cart-button" id="openCart" aria-label="Abrir carrinho">
+      <span>🛍</span>
+      <span>Meu pedido</span>
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
   </header>
 
   <main>
-    <section class="hero" id="inicio">
-      <div class="hero-content">
-        <span class="eyebrow">FEITO COM CARINHO, SERVIDO COM AMOR</span>
-        <h1>Pequenos doces,<br><em>grandes momentos.</em></h1>
-        <p>Doces artesanais preparados com carinho para transformar momentos simples em lembranças especiais.</p>
-        <div class="hero-actions">
-          <a class="button button-dark" href="#doces">Conheça nossos doces <span>↗</span></a>
-          <a class="text-link" href="#sobre">Nossa história <span>→</span></a>
+    <!-- PÁGINA INICIAL -->
+    <section class="home" id="inicio">
+      <div class="home-content">
+        <span class="eyebrow">CONFEITARIA ARTESANAL</span>
+
+        <h1>Um toque de doçura<br>no seu <em>dia.</em></h1>
+
+        <p>
+          Bolos, doces e sobremesas preparados com carinho
+          para deixar cada momento mais especial.
+        </p>
+
+        <button class="primary-button" id="viewMenu">
+          Ver cardápio <span>→</span>
+        </button>
+
+        <div class="home-note">
+          <span>✦</span>
+          <p>Seu próximo doce favorito está aqui.</p>
         </div>
-        <div class="hero-note"><span class="note-star">✳</span><span>Produzido artesanalmente<br><strong>com cuidado em cada detalhe</strong></span></div>
       </div>
-      <div class="hero-image">
-        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1200&q=85" alt="Bolo decorado com cobertura e detalhes delicados">
-        <div class="image-label"><span>✦</span><div><strong>Um toque de doçura</strong><small>Para seus melhores momentos</small></div></div>
-      </div>
-      <div class="hero-decoration">SABOR • CARINHO • ARTE</div>
-    </section>
 
-    <section class="benefits">
-      <div><span class="benefit-icon">♡</span><p><strong>Feito com carinho</strong><small>Cuidado em cada receita</small></p></div>
-      <div><span class="benefit-icon">✧</span><p><strong>Detalhes especiais</strong><small>Beleza em cada doce</small></p></div>
-      <div><span class="benefit-icon">❋</span><p><strong>Para comemorar</strong><small>Momentos que ficam</small></p></div>
-    </section>
-
-    <section class="about section" id="sobre">
-      <div class="about-image">
-        <img src="https://images.unsplash.com/photo-1550617931-e17a7b70dce2?auto=format&fit=crop&w=1000&q=85" alt="Doces artesanais preparados para uma ocasião especial" loading="lazy">
-        <span class="round-stamp">DOÇURA<br>EM CADA<br>DETALHE</span>
-      </div>
-      <div class="about-content">
-        <span class="eyebrow">UM POUCO DA NOSSA ESSÊNCIA</span>
-        <h2>Mais que doces,<br><em>memórias afetivas.</em></h2>
-        <p>Acreditamos que os melhores momentos merecem um toque especial. Por isso, cada doce é pensado para levar sabor, beleza e carinho até você.</p>
-        <p>Seja para presentear alguém querido, celebrar uma conquista ou simplesmente adoçar o dia, queremos fazer parte desses momentos.</p>
-        <a class="text-link" href="#contato">Vamos conversar? <span>→</span></a>
+      <div class="home-photo">
+        <img
+          src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1000&q=85"
+          alt="Bolo decorado"
+        >
+        <div class="photo-label">
+          <span>Feito com carinho ♡</span>
+        </div>
       </div>
     </section>
 
-    <section class="products section" id="doces">
-      <div class="section-heading">
-        <div><span class="eyebrow">ESCOLHIDOS COM CARINHO</span><h2>Um mundo de <em>delícias.</em></h2></div>
-        <p>Encontre o doce ideal para tornar seu momento ainda mais especial.</p>
+    <!-- CARDÁPIO -->
+    <section class="menu-page" id="cardapio" hidden>
+      <div class="menu-heading">
+        <div>
+          <span class="eyebrow">ESCOLHA SUAS DELÍCIAS</span>
+          <h2>Nosso <em>cardápio</em></h2>
+          <p>Explore as categorias e adicione seus favoritos ao pedido.</p>
+        </div>
+
+        <button class="back-button" id="backHome">← Início</button>
       </div>
 
-      <div class="filters" role="group" aria-label="Filtrar doces">
-        <button class="filter active" data-filter="todos">Todos</button>
-        <button class="filter" data-filter="bolos">Bolos</button>
-        <button class="filter" data-filter="docinhos">Docinhos</button>
-        <button class="filter" data-filter="especiais">Especiais</button>
+      <div class="category-nav" id="categoryNav">
+        <button class="category-chip active" data-target="bolos">🎂 Bolos</button>
+        <button class="category-chip" data-target="doces">🍫 Doces</button>
+        <button class="category-chip" data-target="festas">🎉 Para festas</button>
+        <button class="category-chip" data-target="sobremesas">🍮 Sobremesas</button>
+        <button class="category-chip" data-target="especiais">🎁 Especiais</button>
       </div>
 
-      <div class="product-grid">
-        <article class="product-card" data-category="bolos">
-          <div class="product-image"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=85" alt="Bolo decorado" loading="lazy"><span class="product-tag">Clássico</span></div>
-          <div class="product-info"><div><h3>Bolos especiais</h3><p>Para celebrar do seu jeito.</p></div><a href="#contato" class="product-arrow" aria-label="Consultar bolos especiais">↗</a></div>
-        </article>
-        <article class="product-card" data-category="docinhos">
-          <div class="product-image"><img src="https://images.unsplash.com/photo-1581798459219-318e76aecc7b?auto=format&fit=crop&w=800&q=85" alt="Docinhos para festas" loading="lazy"><span class="product-tag">Feitos à mão</span></div>
-          <div class="product-info"><div><h3>Docinhos artesanais</h3><p>Pequenos, delicados e deliciosos.</p></div><a href="#contato" class="product-arrow" aria-label="Consultar docinhos artesanais">↗</a></div>
-        </article>
-        <article class="product-card" data-category="especiais">
-          <div class="product-image"><img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=800&q=85" alt="Sobremesa delicada" loading="lazy"><span class="product-tag">Especial</span></div>
-          <div class="product-info"><div><h3>Sobremesas</h3><p>Um carinho a cada colherada.</p></div><a href="#contato" class="product-arrow" aria-label="Consultar sobremesas">↗</a></div>
-        </article>
-      </div>
-      <p class="catalog-note">As imagens são ilustrativas. Consulte as opções disponíveis e os valores pelo nosso WhatsApp.</p>
-    </section>
+      <div class="catalog-section" id="bolos">
+        <div class="category-heading">
+          <div>
+            <h3>🎂 Bolos</h3>
+            <p>Para comemorar ou adoçar seu dia.</p>
+          </div>
+          <span class="swipe-hint">Arraste para o lado →</span>
+        </div>
 
-    <section class="quote">
-      <span class="quote-mark">“</span>
-      <p>A vida fica mais doce quando<br>compartilhamos o que amamos.</p>
-      <span class="quote-line"></span>
-      <small>SABOR & ART</small>
-    </section>
+        <div class="product-row">
+          <article class="product-card">
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=85" alt="Bolo decorado" loading="lazy">
+            <div class="product-details">
+              <h4>Bolo decorado</h4>
+              <p>Delicado e preparado sob encomenda.</p>
+              <div class="product-bottom">
+                <strong class="price">Consultar</strong>
+                <button class="add-button" data-name="Bolo decorado" data-price="0">+ Adicionar</button>
+              </div>
+            </div>
+          </article>
 
-    <section class="contact section" id="contato">
-      <div class="contact-copy">
-        <span class="eyebrow">SEU PRÓXIMO MOMENTO ESPECIAL</span>
-        <h2>Vamos adoçar<br><em>essa ocasião?</em></h2>
-        <p>Fale com a gente para consultar opções, encomendas e disponibilidade. Será um prazer ajudar!</p>
-        <a href="#" class="button button-dark" id="whatsappButton">Pedir pelo WhatsApp <span>↗</span></a>
-        <small class="contact-hint">Atendimento direto e personalizado.</small>
+          <article class="product-card">
+            <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=700&q=85" alt="Bolo de chocolate" loading="lazy">
+            <div class="product-details">
+              <h4>Bolo de chocolate</h4>
+              <p>Uma opção para os amantes de chocolate.</p>
+              <div class="product-bottom">
+                <strong class="price">Consultar</strong>
+                <button class="add-button" data-name="Bolo de chocolate" data-price="0">+ Adicionar</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=700&q=85" alt="Bolo para comemoração" loading="lazy">
+            <div class="product-details">
+              <h4>Bolo de aniversário</h4>
+              <p>Consulte modelos e tamanhos disponíveis.</p>
+              <div class="product-bottom">
+                <strong class="price">Consultar</strong>
+                <button class="add-button" data-name="Bolo de aniversário" data-price="0">+ Adicionar</button>
+              </div>
+            </div>
+          </article>
+        </div>
       </div>
-      <div class="contact-image">
-        <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=1000&q=85" alt="Doces decorados para presentear" loading="lazy">
+
+      <div class="catalog-section" id="doces">
+        <div class="category-heading">
+          <div>
+            <h3>🍫 Doces</h3>
+            <p>Pequenas delícias para qualquer hora.</p>
+          </div>
+          <span class="swipe-hint">Arraste para o lado →</span>
+        </div>
+
+        <div class="product-row">
+          <article class="product-card">
+            <img src="https://images.unsplash.com/photo-1581798459219-318e76aecc7b?auto=format&fit=crop&w=700&q=85" alt="Docinhos artesanais" loading="lazy">
+            <div class="product-details">
+              <h4>Docinhos artesanais</h4>
+              <p>Consulte os sabores disponíveis.</p>
+              <div class="product-bottom">
+                <strong class="price">Consultar</strong>
+                <button class="add-button" data-name="Docinhos artesanais" data-price="0">+ Adicionar</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=700&q=85" alt="Doces decorados" loading="lazy">
+            <div class="product-details">
+              <h4>Doces decorados</h4>
+              <p>Detalhes delicados e muito sabor.</p>
+              <div class="product-bottom">
+                <strong class="price">Consultar</strong>
+                <button class="add-button" data-name="Doces decorados" data-price="0">+ Adicionar</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=700&q=85" alt="Doce especial" loading="lazy">
+            <div class="product-details">
+              <h4>Doces especiais</h4>
+              <p>Uma seleção para adoçar seu dia.</p>
+              <div class="product-bottom">
+                <strong class="price">Consultar</strong>
+                <button class="add-button" data-name="Doces especiais" data-price="0">+ Adicionar</button>
+              </div>
+            </div>
+          </article>
+        </div>
       </div>
+
+      <div class="catalog-section" id="festas">
+        <div class="category-heading">
+          <div>
+            <h3>🎉 Para festas</h3>
+            <p>Opções para compartilhar com seus convidados.</p>
+          </div>
+          <span class="swipe-hint">Arraste para o lado →</span>
+        </div>
+
+        <div class="product-row">
+          <article class="product-card">
+            <img src="https://images.unsplash.com/photo-1550617931-e17a7b70dce2?auto=format&fit=crop&w=700&q=85" alt="Doces para festas" loading="lazy">
+            <div class="product-details">
+              <h4>Kit festa</h4>
+              <p>Consulte opções e quantidades.</p>
+              <div class="product-bottom">
+                <strong class="price">Consultar</strong>
+                <button class="add-button" data-name="Kit festa" data-price="0">+ Adicionar</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <img src="https://images.unsplash.com/photo-1464195244916-405fa0a82545?auto=format&fit=crop&w=700&q=85" alt="Bolo para festa" loading="lazy">
+            <div class="product-details">
+              <h4>Bolo para festa</h4>
+              <p>Consulte tamanhos e decoração.</p>
+              <div class="product-bottom">
+                <strong class="price">Consultar</strong>
+                <button class="add-button" data-name="Bolo para festa" data-price="0">+ Adicionar</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="catalog-section" id="sobremesas">
+        <div class="category-heading">
+          <div>
+            <h3>🍮 Sobremesas</h3>
+            <p>Um final delicioso para qualquer refeição.</p>
+          </div>
+          <span class="swipe-hint">Arraste para o lado →</span>
+        </div>
+
+        <div class="product-row">
+          <article class="product-card">
+            <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=700&q=85" alt="Sobremesa artesanal" loading="lazy">
+            <div class="product-details">
+              <h4>Sobremesa artesanal</h4>
+              <p>Consulte as opções do dia.</p>
+              <div class="product-bottom">
+                <strong class="price">Consultar</strong>
+                <button class="add-button" data-name="Sobremesa artesanal" data-price="0">+ Adicionar</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=700&q=85" alt="Sobremesa doce" loading="lazy">
+            <div class="product-details">
+              <h4>Doces individuais</h4>
+              <p>Uma delícia feita para você.</p>
+              <div class="product-bottom">
+                <strong class="price">Consultar</strong>
+                <button class="add-button" data-name="Doces individuais" data-price="0">+ Adicionar</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="catalog-section" id="especiais">
+        <div class="category-heading">
+          <div>
+            <h3>🎁 Especiais</h3>
+            <p>Para presentear e surpreender.</p>
+          </div>
+          <span class="swipe-hint">Arraste para o lado →</span>
+        </div>
+
+        <div class="product-row">
+          <article class="product-card">
+            <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?auto=format&fit=crop&w=700&q=85" alt="Presente especial" loading="lazy">
+            <div class="product-details">
+              <h4>Presente doce</h4>
+              <p>Consulte sugestões para presentear.</p>
+              <div class="product-bottom">
+                <strong class="price">Consultar</strong>
+                <button class="add-button" data-name="Presente doce" data-price="0">+ Adicionar</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <p class="catalog-disclaimer">
+        Fotos ilustrativas. Produtos, valores e disponibilidade precisam ser confirmados com a confeitaria.
+      </p>
     </section>
   </main>
 
+  <!-- CARRINHO -->
+  <div class="overlay" id="overlay" hidden></div>
+
+  <aside class="cart-panel" id="cartPanel" aria-label="Meu pedido" aria-hidden="true">
+    <div class="cart-header">
+      <div>
+        <span class="eyebrow">SABOR & ART</span>
+        <h2>Meu pedido</h2>
+      </div>
+      <button class="close-cart" id="closeCart" aria-label="Fechar carrinho">×</button>
+    </div>
+
+    <div class="cart-items" id="cartItems">
+      <p class="empty-cart">Seu carrinho ainda está vazio. Escolha uma delícia do cardápio!</p>
+    </div>
+
+    <div class="cart-footer">
+      <p class="cart-total">Total com preços definidos <strong id="cartTotal">A consultar</strong></p>
+      <p class="cart-small">Itens sem preço definido serão confirmados pelo WhatsApp.</p>
+      <button class="checkout-button" id="checkoutButton">Finalizar pelo WhatsApp ↗</button>
+      <button class="clear-cart" id="clearCart">Limpar pedido</button>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
   <footer class="footer">
-    <a class="logo footer-logo" href="#inicio">Sabor <span>&</span> Art<span class="logo-dot">.</span></a>
+    <a href="#inicio" class="brand">Sabor <span>&</span> Art<span class="brand-dot">.</span></a>
     <p>Feito com carinho para deixar a vida mais doce.</p>
-    <div class="footer-links"><a href="#inicio">Início</a><a href="#doces">Cardápio</a><a id="instagramLink" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram ↗</a></div>
-    <div class="footer-bottom"><span>© <span id="year"></span> Sabor & Art. Todos os direitos reservados.</span><a href="#inicio">Voltar ao topo ↑</a></div>
+    <small>© <span id="year"></span> Sabor & Art</small>
   </footer>
 
   <script src="script.js"></script>
