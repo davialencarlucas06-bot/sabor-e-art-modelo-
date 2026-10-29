@@ -1,43 +1,23 @@
 
-/*
-  SABOR E ART
-  Antes de publicar, substitua o número abaixo pelo WhatsApp
-  comercial completo, incluindo o código do país e o DDD.
-  Use somente números, sem +, espaços ou traços.
-*/
+const WHATSAPP_NUMBER = "5511999999999";
+const INSTAGRAM_URL = "https://www.instagram.com/";
 
-const WHATSAPP_NUMBER = "5531999999999";
-
-const buildWhatsAppLink = (message) => {
-  const numberIsConfigured =
-    /^\d{12,13}$/.test(WHATSAPP_NUMBER) &&
-    !WHATSAPP_NUMBER.endsWith("999999999");
-
-  if (!numberIsConfigured) {
-    alert(
-      "O WhatsApp da loja ainda precisa ser configurado no arquivo script.js."
-    );
-    return;
-  }
-
-  const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-  window.open(url, "_blank", "noopener,noreferrer");
-};
-
-// Menu para celular
 const menuToggle = document.getElementById("menuToggle");
 const nav = document.getElementById("nav");
 
+// Menu para celulares
 menuToggle.addEventListener("click", () => {
   const isOpen = nav.classList.toggle("open");
+
   menuToggle.setAttribute("aria-expanded", String(isOpen));
   menuToggle.setAttribute(
     "aria-label",
     isOpen ? "Fechar menu" : "Abrir menu"
   );
-  menuToggle.textContent = isOpen ? "×" : "☰";
+  menuToggle.textContent = isOpen ? "✕" : "☰";
 });
 
+// Fecha o menu ao selecionar uma seção
 nav.querySelectorAll("a").forEach((link) => {
   link.addEventListener("click", () => {
     nav.classList.remove("open");
@@ -47,56 +27,56 @@ nav.querySelectorAll("a").forEach((link) => {
   });
 });
 
-// Filtros do cardápio
+// Filtros do catálogo de doces
 const filterButtons = document.querySelectorAll(".filter");
 const productCards = document.querySelectorAll(".product-card");
 
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    const selectedFilter = button.dataset.filter;
+    const category = button.dataset.filter;
 
     filterButtons.forEach((item) => {
-      const active = item === button;
-      item.classList.toggle("active", active);
-      item.setAttribute("aria-pressed", String(active));
+      item.classList.remove("active");
     });
+
+    button.classList.add("active");
 
     productCards.forEach((card) => {
-      card.hidden =
-        selectedFilter !== "todos" &&
-        card.dataset.category !== selectedFilter;
+      const matches =
+        category === "todos" || card.dataset.category === category;
+
+      card.classList.toggle("hidden", !matches);
     });
   });
-
-  button.setAttribute(
-    "aria-pressed",
-    String(button.classList.contains("active"))
-  );
 });
 
-// Botões de consulta de produtos
-document.querySelectorAll(".add-button").forEach((button) => {
-  button.addEventListener("click", () => {
-    const product = button.dataset.product;
-    buildWhatsAppLink(
-      `Olá! Vi o site da Sabor e Art e gostaria de saber mais sobre ${product}, incluindo sabores, tamanhos e valores.`
+// Botão de pedido pelo WhatsApp
+const whatsappButton = document.getElementById("whatsappButton");
+
+whatsappButton.addEventListener("click", (event) => {
+  event.preventDefault();
+
+  if (WHATSAPP_NUMBER === "5511999999999") {
+    alert(
+      "Configure o número de WhatsApp da confeitaria no arquivo script.js antes de publicar o site."
     );
-  });
+    return;
+  }
+
+  const message = encodeURIComponent(
+    "Olá! Conheci o site da Sabor & Art e gostaria de consultar os doces disponíveis e os valores."
+  );
+
+  const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
+
+  window.open(url, "_blank", "noopener,noreferrer");
 });
 
-// Botões gerais de contato
-const generalMessage =
-  "Olá! Conheci o site da Sabor e Art e gostaria de consultar o cardápio e fazer uma encomenda.";
+// Link do Instagram
+const instagramLink = document.getElementById("instagramLink");
 
-document.getElementById("contactButton").addEventListener("click", (event) => {
-  event.preventDefault();
-  buildWhatsAppLink(generalMessage);
-});
+instagramLink.href = INSTAGRAM_URL;
 
-document.getElementById("floatingWhatsapp").addEventListener("click", (event) => {
-  event.preventDefault();
-  buildWhatsAppLink(generalMessage);
-});
-
-// Ano automático no rodapé
-document.getElementById("year").textContent = new Date().getFullYear();
+// Ano atualizado automaticamente
+document.getElementById("year").textContent =
+  new Date().getFullYear();
